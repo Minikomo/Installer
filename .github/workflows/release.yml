@@ -134,16 +134,6 @@ jobs:
           pacman -S --noconfirm git mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-go
           export GOROOT=/mingw64/lib/go
           export GOPATH=/mingw64
-          
-      - name: Setup Go Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~\AppData\Local\go-build
-            ~\go\pkg\mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
 
       - name: Install Go dependencies
         shell: msys2 {0}
